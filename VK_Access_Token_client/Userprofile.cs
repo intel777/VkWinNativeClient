@@ -224,6 +224,7 @@ namespace VK_Access_Token_client
         private void Actions_button_Click(object sender, EventArgs e)
         {
             User_Actions useractions = new User_Actions();
+            useractions.Target_id = Target_id;
             useractions.Username = First_name.Text + " " + Last_name.Text;
             useractions.CanWritePM = userinfo.CanWritePrivateMessage;
             useractions.CanSendFriendRequest = userinfo.CanSendFriendRequest;
