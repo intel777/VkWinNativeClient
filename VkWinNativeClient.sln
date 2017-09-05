@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26621.2
+VisualStudioVersion = 15.0.26823.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VK_Access_Token_client", "VK_Access_Token_client\VK_Access_Token_client.csproj", "{8CE8907A-FC3E-4E81-B2A4-E7A05EFA6AFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VkWinNativeClient", "VK_Access_Token_client\VkWinNativeClient.csproj", "{8CE8907A-FC3E-4E81-B2A4-E7A05EFA6AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
