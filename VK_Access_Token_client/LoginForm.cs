@@ -111,6 +111,8 @@ namespace VK_Access_Token_client
                     string Out = sr.ReadToEnd();
                     JObject login_response = JObject.Parse(Out);
                     string access_token = login_response.SelectToken("access_token").ToString();
+                    Loading.Close();
+                    TokenAuth(access_token);
                 }
             }
             catch(WebException err)
@@ -127,21 +129,34 @@ namespace VK_Access_Token_client
                     JObject error = JObject.Parse(text);
                     if (error.SelectToken("error").ToString() == "need_captcha")
                     {
-                        Captcha captcha_processor = new Captcha();
-                        captcha_processor.captcha_url = WebUtility.UrlDecode(error.SelectToken("captcha_img").ToString());
-                        captcha_processor.captcha_sid = error.SelectToken("captcha_sid").ToString();
-                        captcha_processor.request_url = requestUrl;
+                        Captcha captcha_processor = new Captcha
+                        {
+                            CaptchaUrl = WebUtility.UrlDecode(error.SelectToken("captcha_img").ToString()),
+                            CaptchaSid = error.SelectToken("captcha_sid").ToString(),
+                            RequestUrl = requestUrl
+                        };
                         captcha_processor.ShowDialog();
+                        if (captcha_processor.Success)
+                        {
+                            JObject login_response = JObject.Parse(captcha_processor.Response);
+                            string access_token = login_response.SelectToken("access_token").ToString();
+                            Loading.Close();
+                            TokenAuth(access_token);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bad captcha or Login/Password. Try again.", "Error");
+                            return;
+                        }
                     }
                     else
                     {
+                        Loading.Close();
                         MessageBox.Show(text, "Error code: " + httpResponse.StatusCode);
                         return;
                     }
                 }
             }
-            Loading.Close();
-            TokenAuth(access_token);
         }
     }
 
