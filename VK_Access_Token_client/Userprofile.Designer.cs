@@ -47,12 +47,14 @@
             this.General_groupBox = new System.Windows.Forms.GroupBox();
             this.Verified_label = new System.Windows.Forms.Label();
             this.PageInfo_groupBox = new System.Windows.Forms.GroupBox();
+            this.FriendsCount_label = new System.Windows.Forms.Label();
             this.CommonFriends_Label = new System.Windows.Forms.Label();
             this.Followers_label = new System.Windows.Forms.Label();
             this.HasMobile_label = new System.Windows.Forms.Label();
             this.DFR_label = new System.Windows.Forms.Label();
             this.Regdate_label = new System.Windows.Forms.Label();
             this.Domain_label = new System.Windows.Forms.Label();
+            this.FriendsCount = new System.Windows.Forms.Label();
             this.Common = new System.Windows.Forms.Label();
             this.Followers = new System.Windows.Forms.Label();
             this.DaysFromRegistration = new System.Windows.Forms.Label();
@@ -125,8 +127,6 @@
             this.Instagram = new System.Windows.Forms.Label();
             this.Facebook = new System.Windows.Forms.Label();
             this.Twitter = new System.Windows.Forms.Label();
-            this.FriendsCount_label = new System.Windows.Forms.Label();
-            this.FriendsCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProfileImage)).BeginInit();
             this.General_groupBox.SuspendLayout();
             this.PageInfo_groupBox.SuspendLayout();
@@ -362,6 +362,16 @@
             this.PageInfo_groupBox.TabStop = false;
             this.PageInfo_groupBox.Text = "Page Info";
             // 
+            // FriendsCount_label
+            // 
+            this.FriendsCount_label.AutoSize = true;
+            this.FriendsCount_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FriendsCount_label.Location = new System.Drawing.Point(6, 96);
+            this.FriendsCount_label.Name = "FriendsCount_label";
+            this.FriendsCount_label.Size = new System.Drawing.Size(53, 16);
+            this.FriendsCount_label.TabIndex = 4;
+            this.FriendsCount_label.Text = "Friends";
+            // 
             // CommonFriends_Label
             // 
             this.CommonFriends_Label.AutoSize = true;
@@ -421,6 +431,18 @@
             this.Domain_label.Size = new System.Drawing.Size(55, 16);
             this.Domain_label.TabIndex = 4;
             this.Domain_label.Text = "Domain";
+            // 
+            // FriendsCount
+            // 
+            this.FriendsCount.AutoSize = true;
+            this.FriendsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.FriendsCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.FriendsCount.Location = new System.Drawing.Point(211, 96);
+            this.FriendsCount.Name = "FriendsCount";
+            this.FriendsCount.Size = new System.Drawing.Size(42, 16);
+            this.FriendsCount.TabIndex = 5;
+            this.FriendsCount.Text = "False";
+            this.FriendsCount.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Common
             // 
@@ -1236,28 +1258,6 @@
             this.Twitter.TabIndex = 5;
             this.Twitter.Text = "Unknown";
             this.Twitter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // FriendsCount_label
-            // 
-            this.FriendsCount_label.AutoSize = true;
-            this.FriendsCount_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FriendsCount_label.Location = new System.Drawing.Point(6, 96);
-            this.FriendsCount_label.Name = "FriendsCount_label";
-            this.FriendsCount_label.Size = new System.Drawing.Size(53, 16);
-            this.FriendsCount_label.TabIndex = 4;
-            this.FriendsCount_label.Text = "Friends";
-            // 
-            // FriendsCount
-            // 
-            this.FriendsCount.AutoSize = true;
-            this.FriendsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.FriendsCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.FriendsCount.Location = new System.Drawing.Point(211, 96);
-            this.FriendsCount.Name = "FriendsCount";
-            this.FriendsCount.Size = new System.Drawing.Size(42, 16);
-            this.FriendsCount.TabIndex = 5;
-            this.FriendsCount.Text = "False";
-            this.FriendsCount.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Userprofile
             // 

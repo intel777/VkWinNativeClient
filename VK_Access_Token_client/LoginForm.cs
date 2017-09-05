@@ -100,13 +100,46 @@ namespace VK_Access_Token_client
             }
             int platformIndex = PlatformSelector.SelectedIndex;
             platform = platforms[platformIndex];
-            WebRequest request = WebRequest.Create("https://oauth.vk.com/token?scope=all&" + platform + "&lang=en&grant_type=password&username=" + username + "&password=" + password + facode);
-            WebResponse response = request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader sr = new StreamReader(stream);
-            string Out = sr.ReadToEnd();
-            JObject login_response = JObject.Parse(Out);
-            string access_token = login_response.SelectToken("access_token").ToString();
+            string requestUrl = "https://oauth.vk.com/token?scope=all&" + platform + "&lang=en&grant_type=password&username=" + username + "&password=" + password + facode;
+            WebRequest request = WebRequest.Create(requestUrl);
+            try
+            {
+                using (WebResponse response = request.GetResponse())
+                {
+                    Stream stream = response.GetResponseStream();
+                    StreamReader sr = new StreamReader(stream);
+                    string Out = sr.ReadToEnd();
+                    JObject login_response = JObject.Parse(Out);
+                    string access_token = login_response.SelectToken("access_token").ToString();
+                }
+            }
+            catch(WebException err)
+            {
+                using (WebResponse response = err.Response)
+                {
+                    string text = string.Empty;
+                    HttpWebResponse httpResponse = (HttpWebResponse)response;
+                    using (Stream data = response.GetResponseStream())
+                    using (var reader = new StreamReader(data))
+                    {
+                        text = reader.ReadToEnd();
+                    }
+                    JObject error = JObject.Parse(text);
+                    if (error.SelectToken("error").ToString() == "need_captcha")
+                    {
+                        Captcha captcha_processor = new Captcha();
+                        captcha_processor.captcha_url = WebUtility.UrlDecode(error.SelectToken("captcha_img").ToString());
+                        captcha_processor.captcha_sid = error.SelectToken("captcha_sid").ToString();
+                        captcha_processor.request_url = requestUrl;
+                        captcha_processor.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show(text, "Error code: " + httpResponse.StatusCode);
+                        return;
+                    }
+                }
+            }
             Loading.Close();
             TokenAuth(access_token);
         }
