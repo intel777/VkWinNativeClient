@@ -13,8 +13,8 @@ namespace VK_Access_Token_client
 {
     public partial class Main : Form
     {
-        public VkApi api;
-        public long self_id;
+        VkApi api = GlobalVars.api;
+        long self_id = GlobalVars.self_id;
         public Main()
         {
             InitializeComponent();
@@ -37,8 +37,6 @@ namespace VK_Access_Token_client
             Loading.Show();
             Application.DoEvents();
             Userprofile profile = new Userprofile();
-            profile.api = api;
-            profile.Target_id = self_id;
             profile.Show();
             Loading.Close();
         }
@@ -49,7 +47,6 @@ namespace VK_Access_Token_client
             Loading.Show();
             Application.DoEvents();
             Userprofile profile = new Userprofile();
-            profile.api = api;
             profile.Target_id = long.Parse(SomeoneProfile_id.Text);
             profile.Show();
             Loading.Close();

@@ -15,8 +15,14 @@ using Newtonsoft.Json.Linq;
 
 namespace VK_Access_Token_client
 {
+    public static class GlobalVars
+    {
+        public static VkApi api;
+        public static long self_id;
+    }
     public partial class LoginForm : Form
     {
+
         string access_token;
         public LoginForm()
         {
@@ -42,9 +48,9 @@ namespace VK_Access_Token_client
             var vk = new VkApi();
             vk.Authorize(access_token, long.Parse(userid));
             var user_info = vk.Users.Get(vk.UserId.Value);
+            GlobalVars.self_id = long.Parse(userid);
+            GlobalVars.api = vk;
             Main frm = new Main();
-            frm.self_id = long.Parse(userid);
-            frm.api = vk;
             frm.Show();
             Loading.Close();
             this.Hide();

@@ -19,8 +19,8 @@ namespace VK_Access_Token_client
     public partial class Userprofile : Form
     {
         public long Target_id;
-        public VkApi api;
-        public long selfid;
+        VkApi api = GlobalVars.api;
+        long selfid = GlobalVars.self_id;
         VkNet.Model.User userinfo = new VkNet.Model.User();
         Dictionary<string, string> platforms = new Dictionary<string, string>();
         Dictionary<string, string> relation_statuses = new Dictionary<string, string>();
@@ -68,6 +68,10 @@ namespace VK_Access_Token_client
             relation_statuses.Add("6", "Actively searching");
             relation_statuses.Add("7", "In Love");
             relation_statuses.Add("8", "In a civil union");
+            if(Target_id == 0)
+            {
+                Target_id = selfid;
+            }
             userinfo = api.Users.Get(Target_id, ProfileFields.All);
             First_name.Text = userinfo.FirstName;
             Last_name.Text = userinfo.LastName;
@@ -220,8 +224,6 @@ namespace VK_Access_Token_client
         private void Actions_button_Click(object sender, EventArgs e)
         {
             User_Actions useractions = new User_Actions();
-            useractions.api = api;
-            useractions.Target_id = Target_id;
             useractions.Username = First_name.Text + " " + Last_name.Text;
             useractions.CanWritePM = userinfo.CanWritePrivateMessage;
             useractions.CanSendFriendRequest = userinfo.CanSendFriendRequest;

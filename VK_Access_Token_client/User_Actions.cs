@@ -15,7 +15,7 @@ namespace VK_Access_Token_client
     public partial class User_Actions : Form
     {
         public long Target_id;
-        public VkApi api;
+        VkApi api = GlobalVars.api;
         public string Username;
         public bool CanWritePM;
         public bool CanSendFriendRequest;
