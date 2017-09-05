@@ -30,6 +30,7 @@
         {
             this.Login_tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.PlatformSelector = new System.Windows.Forms.ComboBox();
             this.LoginByPassword_Button = new System.Windows.Forms.Button();
             this.TSV_Code = new System.Windows.Forms.TextBox();
             this.TSVCode_label = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.Password_text = new System.Windows.Forms.TextBox();
             this.Login_text = new System.Windows.Forms.TextBox();
             this.Password_label = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Login_label = new System.Windows.Forms.Label();
             this.AccessToken = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +61,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.PlatformSelector);
             this.tabPage1.Controls.Add(this.LoginByPassword_Button);
             this.tabPage1.Controls.Add(this.TSV_Code);
             this.tabPage1.Controls.Add(this.TSVCode_label);
@@ -66,6 +69,7 @@
             this.tabPage1.Controls.Add(this.Password_text);
             this.tabPage1.Controls.Add(this.Login_text);
             this.tabPage1.Controls.Add(this.Password_label);
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.Login_label);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -74,14 +78,28 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Username&Password";
             // 
+            // PlatformSelector
+            // 
+            this.PlatformSelector.FormattingEnabled = true;
+            this.PlatformSelector.Items.AddRange(new object[] {
+            "Android",
+            "iPhone",
+            "iPad",
+            "Windows Phone"});
+            this.PlatformSelector.Location = new System.Drawing.Point(76, 106);
+            this.PlatformSelector.Name = "PlatformSelector";
+            this.PlatformSelector.Size = new System.Drawing.Size(121, 21);
+            this.PlatformSelector.TabIndex = 6;
+            // 
             // LoginByPassword_Button
             // 
-            this.LoginByPassword_Button.Location = new System.Drawing.Point(137, 99);
+            this.LoginByPassword_Button.Location = new System.Drawing.Point(285, 99);
             this.LoginByPassword_Button.Name = "LoginByPassword_Button";
             this.LoginByPassword_Button.Size = new System.Drawing.Size(101, 32);
             this.LoginByPassword_Button.TabIndex = 5;
             this.LoginByPassword_Button.Text = "Login";
             this.LoginByPassword_Button.UseVisualStyleBackColor = true;
+            this.LoginByPassword_Button.Click += new System.EventHandler(this.LoginByPassword_Button_Click);
             // 
             // TSV_Code
             // 
@@ -108,7 +126,7 @@
             this.TSV_checkBox.Location = new System.Drawing.Point(7, 59);
             this.TSV_checkBox.Name = "TSV_checkBox";
             this.TSV_checkBox.Size = new System.Drawing.Size(160, 21);
-            this.TSV_checkBox.TabIndex = 2;
+            this.TSV_checkBox.TabIndex = 3;
             this.TSV_checkBox.Text = "Two Step Verification";
             this.TSV_checkBox.UseVisualStyleBackColor = true;
             this.TSV_checkBox.CheckedChanged += new System.EventHandler(this.TSV_checkBox_CheckedChanged);
@@ -119,7 +137,7 @@
             this.Password_text.Name = "Password_text";
             this.Password_text.PasswordChar = '*';
             this.Password_text.Size = new System.Drawing.Size(283, 20);
-            this.Password_text.TabIndex = 1;
+            this.Password_text.TabIndex = 2;
             // 
             // Login_text
             // 
@@ -137,6 +155,16 @@
             this.Password_label.Size = new System.Drawing.Size(73, 17);
             this.Password_label.TabIndex = 0;
             this.Password_label.Text = "Password:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Location = new System.Drawing.Point(6, 107);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Platform:";
             // 
             // Login_label
             // 
@@ -221,6 +249,8 @@
         private System.Windows.Forms.Label Password_label;
         private System.Windows.Forms.Label Login_label;
         private System.Windows.Forms.Button LoginByPassword_Button;
+        private System.Windows.Forms.ComboBox PlatformSelector;
+        private System.Windows.Forms.Label label2;
     }
 }
 
