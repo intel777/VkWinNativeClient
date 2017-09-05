@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26621.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VK_Access_Token_client", "VK_Access_Token_client\VK_Access_Token_client.csproj", "{8CE8907A-FC3E-4E81-B2A4-E7A05EFA6AFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CE8907A-FC3E-4E81-B2A4-E7A05EFA6AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE8907A-FC3E-4E81-B2A4-E7A05EFA6AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE8907A-FC3E-4E81-B2A4-E7A05EFA6AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE8907A-FC3E-4E81-B2A4-E7A05EFA6AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2979FC8C-81A6-46F3-AA20-8F65FE6B74A9}
+	EndGlobalSection
+EndGlobal
